@@ -5,7 +5,7 @@ The DefaultPartitioner include in kafka-clients determines a partition to send r
 * Rule 1. If key is specified, statically choose a partition with murmurhash(byte array of key) % number of partitions
 * Rule 2. Else choose a partition in round robin manner within available partitions.
 
-This rule 1 can cause serious problem when key is given and there are unavailable partitions because of "% number of partitions". Not "% of number of AVAILABLE partitions". If caculation result is dead partition, that recored can not be deliver forever until dead partition becomes available. AND all queuing record of that producer also can not deliver until dead partitions resurrect. Of course, pending can be spread over all producer.
+This rule 1 can cause serious problem when key is given and there are unavailable partitions because of "% number of partitions". Not "% of number of AVAILABLE partitions". If record's hash caculation result points to dead partition, that record can not be delivered until dead partition becomes available. AND all queuing record of that producer also can not deliver until dead partitions resurrect.
 
 Yes. Purpose of DefaultParitioner's key is sharding. But if you want key as other purpose like:
 * Both key and value are data but serialization class are different. For example, value is string and key is avro object.
