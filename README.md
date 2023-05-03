@@ -1,6 +1,6 @@
 # kafka-simple-partitioner
 
-You can download proper version from releas tags.
+You can download proper version from release tags.
 
 SimplePartitioner는 메세지 전송할 파티션을 가용한 파티션 중 round-robin으로 선택하는 파티셔너이다.
 
